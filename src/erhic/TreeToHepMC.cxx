@@ -378,6 +378,9 @@ Long64_t TreeToHepMC(const std::string& inputFileName,
 	case 1:
 	  {
 	    // final particles
+	    if ( !pdg ){ // set status of unknown particles to 90 (e.g. pomerons, ions)
+	    inParticle->SetStatus(90);
+	    }
 	    auto mom = inParticle->GetParent();
 	    if ( mom ){
 	      // status of mother?
